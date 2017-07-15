@@ -20,8 +20,9 @@ import de.com.ginmon_core.model.User;
 @Component("userListTransaction")
 public class UserListTransaction {
 	
-	public ArrayList<User> userList(final int id){
+	public ArrayList<User> userList(final Integer id){
 		RestTemplate template = new RestTemplate();
+		System.out.println("Passei por aqui");
 		ResponseEntity<ArrayList<User>> response = 
 				template.exchange("https://api.github.com/users?since=" + id, 
 						HttpMethod.GET,null, new ParameterizedTypeReference<ArrayList<User>>() {
