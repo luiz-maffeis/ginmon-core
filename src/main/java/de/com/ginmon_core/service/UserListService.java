@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.com.ginmon_core.transaction;
+package de.com.ginmon_core.service;
 
 import java.util.ArrayList;
 
@@ -17,12 +17,11 @@ import de.com.ginmon_core.model.User;
  * @author Luiz
  *
  */
-@Component("userListTransaction")
-public class UserListTransaction {
+@Component("userListService")
+public class UserListService {
 	
 	public ArrayList<User> userList(final Integer id){
 		RestTemplate template = new RestTemplate();
-		System.out.println("Passei por aqui");
 		ResponseEntity<ArrayList<User>> response = 
 				template.exchange("https://api.github.com/users?since=" + id, 
 						HttpMethod.GET,null, new ParameterizedTypeReference<ArrayList<User>>() {
