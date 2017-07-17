@@ -1,5 +1,4 @@
-<<<<<<< HEAD
 language: java
-=======
-language: java
->>>>>>> 8c1a298f5a44c3cfb2c8abb8ce2a46c1f1efa945
+jdk:
+  - oraclejdk8
+  - oraclejdk7
