@@ -12,7 +12,7 @@ This project is a programming assignment that consumes REST endpoints from https
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [Spring Boot](https://spring.io/docs) 
 
-## Built With
+## REST API
 
 1- http://localhost:8080/userDetail/{login}
 * This request returns a User Detail from (https://api.github.com)
