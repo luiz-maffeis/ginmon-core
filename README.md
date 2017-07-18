@@ -22,7 +22,7 @@ curl --request GET \
   --url http://localhost:8080/userDetail/mojombo
 ```
 
-2- localhost:8080/userList/{id}
+2- http://localhost:8080/userList/{id}
 * This request returns a list of Users from (https://api.github.com)
 
 ```
@@ -30,7 +30,7 @@ curl --request GET \
   --url http://localhost:8080/userList/0
 ```
 
-3- localhost:8080/saveUser
+3- http://localhost:8080/saveUser
 * This request saves a User with a personal comment in a database
 
 ```
@@ -45,7 +45,7 @@ curl --request POST \
 '
 ```
 
-4- localhost:8080/userCommentId/{id}
+4- http://localhost:8080/userCommentId/{id}
 * This request return a list of User´s comments saved in a database
 
 ```
@@ -53,7 +53,7 @@ curl --request GET \
   --url http://localhost:8080/userCommentId/44
 ```
 
-5- localhost:8080/userCommentLogin/{login}
+5- http://localhost:8080/userCommentLogin/{login}
 * This request return a list of User´s Comments saved in a database
 
 ```
