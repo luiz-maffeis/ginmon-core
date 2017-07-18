@@ -10,12 +10,12 @@ This project is a programming assignment that consumes REST endpoints from https
 
 * [JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/index.html) - JDK
 * [Maven](https://maven.apache.org/) - Dependency Management
-* [Spring Boot] (https://spring.io/docs) 
+* [Spring Boot](https://spring.io/docs) 
 
 ## Built With
 
 1- http://localhost:8080/userDetail/{login}
-This request returns a User Detail from (https://api.github.com)
+* This request returns a User Detail from (https://api.github.com)
 
 ```
 curl --request GET \
@@ -23,7 +23,7 @@ curl --request GET \
 ```
 
 2- localhost:8080/userList/{id}
-This request returns a list of Users from (https://api.github.com)
+* This request returns a list of Users from (https://api.github.com)
 
 ```
 curl --request GET \
@@ -31,7 +31,7 @@ curl --request GET \
 ```
 
 3- localhost:8080/saveUser
-This request saves a User with a personal comment in a database
+* This request saves a User with a personal comment in a database
 
 ```
 curl --request POST \
@@ -46,7 +46,7 @@ curl --request POST \
 ```
 
 4- localhost:8080/userCommentId/{id}
-This request return a list of User´s comments saved in a database
+* This request return a list of User´s comments saved in a database
 
 ```
 curl --request GET \
@@ -54,7 +54,7 @@ curl --request GET \
 ```
 
 5- localhost:8080/userCommentLogin/{login}
-This request return a list of User´s Comments saved in a database
+* This request return a list of User´s Comments saved in a database
 
 ```
 curl --request GET \
