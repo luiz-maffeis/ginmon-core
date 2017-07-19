@@ -1,9 +1,11 @@
 package de.com.ginmon_core.controller;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
@@ -14,17 +16,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultMatcher;
+import org.junit.Assert.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import de.com.ginmon_core.model.UserComment;
 import de.com.ginmon_core.repository.UserRepository;
 
-
-@RunWith(SpringRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
 public class UserControllerTest {
@@ -43,15 +47,24 @@ public class UserControllerTest {
 		this.mockMvc.perform(get("/userList/0"))
 		.andDo(print())
 		.andExpect(status().isOk())
-        //.andExpect(content().json(null))
-        ;
+		.andExpect(jsonPath("$", hasSize(30)))
+		;
     }
 	
 	@Test
     public void shouldReturnUserDetail() throws Exception {
 		this.mockMvc.perform(get("/userDetail/mojombo"))
 		.andDo(print())
-		.andExpect(status().isOk());
+		.andExpect(status().isOk())
+		.andExpect(new ResultMatcher() {
+			
+			@SuppressWarnings("unlikely-arg-type")
+			@Override
+			public void match(MvcResult result) throws Exception {
+				equals(result.equals(MediaType.APPLICATION_JSON));
+				
+			}
+		});
     }
 	
 	
