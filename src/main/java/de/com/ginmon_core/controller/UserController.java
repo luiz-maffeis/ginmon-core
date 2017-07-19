@@ -12,6 +12,7 @@ import javax.websocket.server.PathParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +50,7 @@ public class UserController {
 	 * @param id
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(value="/userList/{id}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public ArrayList<User> userList(@PathParam("id") Integer id){
@@ -57,6 +59,7 @@ public class UserController {
 		return userList;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="/userDetail/{login}", method = RequestMethod.GET, produces = "application/json")
 	public User userDetail(@PathVariable("login") String login){
 
@@ -65,6 +68,7 @@ public class UserController {
 		return user;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="/saveUser", method = RequestMethod.POST, consumes="application/json")
 	@ResponseStatus(value=HttpStatus.OK)
 	@ResponseBody
@@ -74,6 +78,7 @@ public class UserController {
 		return userComment;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="/userCommentId/{id}", method = RequestMethod.GET, produces = "application/json")
 	public List<UserComment> userCommentID(@PathVariable("id") Integer id){
 
@@ -82,6 +87,7 @@ public class UserController {
 		return usersComment;
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="/userCommentLogin/{login}", method = RequestMethod.GET, produces = "application/json")
 	public List<UserComment> userCommentID(@PathVariable("login") String login){
 
