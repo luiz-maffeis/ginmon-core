@@ -53,7 +53,7 @@ public class UserController {
 	@CrossOrigin
 	@RequestMapping(value="/userList/{id}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public ArrayList<User> userList(@PathParam("id") Integer id){
+	public ArrayList<User> userList(@PathVariable("id") Integer id){
 		ArrayList<User> userList = userListService.userList(id);
 		log.info(userList.toString());
 		return userList;
@@ -62,7 +62,6 @@ public class UserController {
 	@CrossOrigin
 	@RequestMapping(value="/userDetail/{login}", method = RequestMethod.GET, produces = "application/json")
 	public User userDetail(@PathVariable("login") String login){
-
 		User user = userDetailService.userDetail(login);
 		log.info(user.toString());
 		return user;

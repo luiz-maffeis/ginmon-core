@@ -22,8 +22,9 @@ public class UserListService {
 	
 	public ArrayList<User> userList(final Integer id){
 		RestTemplate template = new RestTemplate();
+		String url = "https://api.github.com/users?since=" + id;
 		ResponseEntity<ArrayList<User>> response = 
-				template.exchange("https://api.github.com/users?since=" + id, 
+				template.exchange(url, 
 						HttpMethod.GET,null, new ParameterizedTypeReference<ArrayList<User>>() {
 					
 		});
